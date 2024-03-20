@@ -58,11 +58,11 @@ hackConnectButton({
 });
 
 //find the text node in the container,including descendants
-function findTextNode(container: HTMLElement, text: string) {
-  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, {
-    acceptNode(node) {
-      return node.nodeValue?.trim() === text ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
-    },
-  });
-  return walker.nextNode();
-}
+// function findTextNode(container: HTMLElement, text: string) {
+//   const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, {
+//     acceptNode(node) {
+//       return node.nodeValue?.trim() === text ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+//     },
+//   });
+//   return walker.nextNode();
+// }
