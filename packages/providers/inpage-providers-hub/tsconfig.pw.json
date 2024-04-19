@@ -1,0 +1,24 @@
+{
+
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "ESNext",
+      "moduleResolution": "Bundler",
+      "sourceMap": false,
+      "strict": true,
+      "outDir": "./tests-out",
+      "types": ["node"],
+      "skipLibCheck": true,
+      "allowSyntheticDefaultImports": true,      
+      "forceConsistentCasingInFileNames": true,
+      "baseUrl": ".",
+      "paths": {
+        "@onekeyfe/cross-inpage-provider-core":[
+          "src/connectButtonHack/universal/__tests__/mocks/@onekeyfe/cross-inpage-provider-core/index.ts"
+        ],
+      }
+    },
+    "include": ["src/**/*.spec.ts",],
+
+  }
+  

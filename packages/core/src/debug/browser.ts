@@ -6,7 +6,7 @@
  */
 
 import { DEBUG_LOGGER_STORAGE_KEY } from '../consts';
-import { isNil } from 'lodash';
+import {isNil}  from 'lodash-es';
 import humanize from 'ms';
 const storageKey = DEBUG_LOGGER_STORAGE_KEY;
 

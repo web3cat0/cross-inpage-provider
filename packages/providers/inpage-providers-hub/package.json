@@ -27,6 +27,9 @@
     "build": "tsc && tsc --project tsconfig.cjs.json",
     "test": "npx playwright test",
     "test:report": "npx playwright show-report reports",
+    "test:build": "tsc -p tsconfig.pw.json ",
+    "test:run": "npx playwright test -c tests-out",
+    "test:try": "node --import=./src/connectButtonHack/universal/__tests__/loader/register.mjs node_modules/.bin/playwright test -c tests-out",
     "start": "tsc --watch"
   },
   "dependencies": {

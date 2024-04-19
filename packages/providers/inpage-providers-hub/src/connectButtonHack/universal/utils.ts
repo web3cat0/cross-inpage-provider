@@ -1,8 +1,9 @@
 import { Logger } from '@onekeyfe/cross-inpage-provider-core';
 import { Selector } from './type';
-import { IInjectedProviderNames } from '@onekeyfe/cross-inpage-provider-types';
+import { type IInjectedProviderNames } from '@onekeyfe/cross-inpage-provider-types';
 
 export const universalLog = new Logger('universal');
+// export const universalLog = console;
 
 export function isClickable(ele: HTMLElement) {
   return ele && window.getComputedStyle(ele).cursor === 'pointer';

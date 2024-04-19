@@ -10,3 +10,4 @@ node_modules/
 */**/screenshots/
 */**/reports/
 reports/
+tests-out/
