@@ -132,7 +132,7 @@ export type SitesInfo = {
    * path for connect wallet modal used for testing
    */
   testPath?: string[] | { mobile?: string[]; desktop?: string[] };
-  testUrls?: string[]
+  testUrls?: string[];
   only?: boolean;
   skip?: boolean | { mobile?: boolean; desktop?: boolean };
 };
@@ -1064,7 +1064,7 @@ export const sitesConfig: SitesInfo[] = [
             );
           },
           afterUpdate(text, imgNode) {
-            imgNode.style.height = 'auto'
+            imgNode.style.height = 'auto';
           },
         },
         {
@@ -1088,7 +1088,7 @@ export const sitesConfig: SitesInfo[] = [
             );
           },
           afterUpdate(text, imgNode) {
-            imgNode.style.height = 'auto'
+            imgNode.style.height = 'auto';
           },
         },
       ],
@@ -1904,7 +1904,7 @@ export const sitesConfig: SitesInfo[] = [
   {
     urls: ['www.theidols.io'],
     skip: {
-      mobile: true,//没弹窗      
+      mobile: true, //没弹窗
     },
     testUrls: ['www.theidols.io/marketplace'],
 
@@ -1920,7 +1920,7 @@ export const sitesConfig: SitesInfo[] = [
   {
     urls: ['netswap.io'],
     skip: {
-      mobile: true,//没弹窗      
+      mobile: true, //没弹窗
     },
     walletsForProvider: {
       [IInjectedProviderNames.ethereum]: [
@@ -1935,7 +1935,7 @@ export const sitesConfig: SitesInfo[] = [
     urls: ['rosswap.com'],
     constraintMap: { icon: [isWalletIconSizeMatch], text: [] },
     skip: {
-      mobile: true,//没弹窗      
+      mobile: true, //没弹窗
     },
     // skip:
     walletsForProvider: {
@@ -1951,7 +1951,7 @@ export const sitesConfig: SitesInfo[] = [
     urls: ['maiadao.io'],
     constraintMap: { icon: [isWalletIconSizeMatch], text: [] },
     skip: {
-      mobile: true,//没弹窗      
+      mobile: true, //没弹窗
     },
     walletsForProvider: {
       [IInjectedProviderNames.ethereum]: [
@@ -1975,7 +1975,7 @@ export const sitesConfig: SitesInfo[] = [
   },
   {
     urls: ['www.convexfinance.com'],
-    skip: true,//没有icon
+    skip: true, //没有icon
     walletsForProvider: {
       [IInjectedProviderNames.ethereum]: [
         {
@@ -2046,4 +2046,63 @@ export const sitesConfig: SitesInfo[] = [
   //     ],
   //   },
   // },
+  {
+    urls: ['agni.finance'],
+    only: true,
+    walletsForProvider: {
+      [IInjectedProviderNames.ethereum]: [
+        {
+          ...basicWalletInfo['metamask'],
+          findIconAndName({ name }) {
+            const modal = getConnectWalletModalByTitle('div.inside', 'Connect Wallet');
+            return (
+              modal &&
+              findIconAndNameDirectly('img[src*="metamask.png"]', 'auto-search-text', name, modal)
+            );
+          },
+        },
+      ],
+    },
+  },
+  {
+    urls: ['liquidswap.com'],
+    testPath: [
+      ':text("I accept the")',
+      ':text("Continue")',
+      ':text("Connect Wallet")',
+      ':text("Other Wallets")',
+    ],
+    walletsForProvider: {
+      [IInjectedProviderNames.aptos]: [
+        {
+          ...basicWalletInfo['petra'],
+          findIconAndName({ name }) {
+            const modal = getConnectWalletModalByTitle('div.p-dialog', 'Connect a Wallet');
+            return (
+              modal &&
+              findIconAndNameDirectly('img[alt="Petra Wallet"]', 'auto-search-text', name, modal)
+            );
+          },
+        },
+      ],
+    },
+  },
+  {
+    urls: ['stbt.matrixdock.com'],
+    only: true,
+    walletsForProvider: {
+      [IInjectedProviderNames.ethereum]: [
+        {
+          ...basicWalletInfo['metamask'],
+          findIconAndName({ name }) {
+            // const modal = getConnectWalletModalByTitle('div.inside', 'Connect Wallet');
+            // return (
+            //   modal &&
+            //   findIconAndNameDirectly('img[src*="metamask.png"]', 'auto-search-text', name, modal)
+            // );
+          },
+        },
+      ],
+    },
+  }
 ];
